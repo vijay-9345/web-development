@@ -1,0 +1,25 @@
+.grid-container{
+  display: grid;
+  grid-template-columns:  100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px ;
+}
+.grid-container div{
+  border: 2px solid green;
+  background-color: rgb(29, 96, 155);
+}
+.box1{
+  grid-column-start: 1;
+  grid-column-end: 4;
+}.box2{
+  grid-column-start: 1;
+ grid-column-end: 2;
+}.box3{
+  grid-column-start: 1;
+  grid-column-end: 4;
+}.box4{
+  grid-column-start: 1;
+  grid-column-end: 4;
+}.box5{
+  grid-column-start: 1;
+ grid-column-end: 4 ;
+}
