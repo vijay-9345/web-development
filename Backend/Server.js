@@ -1,18 +1,24 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import { connectDB } from './config/db.js'
-import User from './model/user.js'
 const app=express()
+
 connectDB()
 
-
+app.use(express.urlencoded())
 
 app.get('/get',async(req,res)=>{
-    const user=await User.find()
+    const user= await User.find()
     res.json(user)
 })
-app.post('/post',(req,res)=>{
-    res.send('from post')
+app.post('/post',async(req,res)=>{
+    try{
+        const newUser=new User(req.body)
+        await newUser.save()
+        res.send('from post')
+    } catch (error){
+        res.status(401).json(error)
+    }
 })
 app.put('/put',(req,res)=>{
     res.send('from put')
